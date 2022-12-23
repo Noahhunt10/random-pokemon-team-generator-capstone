@@ -1,0 +1,250 @@
+
+#team-cards{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 100px;
+    justify-content: space-between;
+
+}
+#currentTeam{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width:800px; 
+    display: grid;
+}
+#header{
+    display: flex;
+    justify-content: center;
+}
+#generate-poke{
+    margin-top: 100px;
+    width:500px;
+    height: 500px;
+    border-radius: 50%;
+    background-image: url('./imgs/pokeball.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 75px;
+    color: white;
+    text-shadow: 1px 1px 8px black;
+    /* -1px -1px 0px #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: -5px;
+    line-height: 80px;
+    display: flex;
+    margin:  0 auto;
+    align-items: center;
+    margin-top: 100px;
+
+    
+    
+    
+}
+.team-moves{
+    display:flex;
+    flex-direction: column;
+    background-color: grey;
+    color:white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 3px solid black;
+    /* font-size: 20px;
+    padding: 50px; */
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+a{
+    text-decoration: none;
+}
+#generate-poke:hover{
+    box-shadow: 0px 0px 25px 15px red;
+   
+}
+#generate-poke:active{
+    width: 550px;
+    height: 550px;
+}
+#header{
+    background-color: red;
+    padding: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:white;
+    border-radius: 100px;
+    border:5px solid black;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    
+}
+#current-poke{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    border: 5px, solid black;
+    
+
+}
+#current-poke-name{
+    display:flex;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#current-pokemon-moves{
+    display:flex;
+    
+    flex-direction: column;
+    background-color: grey;
+    color:white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 5px solid black;
+    /* font-size: 20px;
+    padding: 50px; */
+    align-items: center;
+    
+    
+    
+
+}
+#current-item-ability-container{
+    display:flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 5px;
+    
+
+}
+#add-new-btns-container{
+    display:flex;
+    justify-content: center;
+    
+   
+}
+.add-new-btns{
+    width:150px;
+    height: 50px;
+    margin:10px;
+    border-radius: 25px;
+    background-color: red;
+    color: aliceblue;
+    border: 3px solid black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    
+}
+.current-item-ability{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   width: 150px;
+    background-color: grey;
+    border : solid black;
+    font-size: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    color: aliceblue;
+    margin:5px;
+    padding:5px;
+    display:flex;
+    justify-content: center;
+    
+    
+    
+}
+.add-new-btns:hover{
+    box-shadow: 0px 0px 10px 10px red;
+}
+.add-new-btns:active{
+    width: 101px;
+    height: 51px;
+}
+.moves{
+    display:flex;
+    flex-direction: row;
+    justify-content:left;
+
+}
+.current-moves{
+    width:190px;
+    
+    text-align:center ;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+#current-pokemon{
+    border: 5px solid black;
+    margin-bottom: 10px;
+}
+#page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+.poke-card{
+    text-align: center;
+   
+    
+}
+.team-move{
+    margin:5px;
+    width:100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: small;
+    
+}
+.team-poke-name{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#team-ability-item{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: grey;
+    border : solid black;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    color: aliceblue;
+    margin:5px;
+    font-size: small;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    
+    
+}
+#poke-img{
+    width: 96px;
+    height: 96px;
+    border: 3px solid black;
+    padding: 0px 100px
+}
