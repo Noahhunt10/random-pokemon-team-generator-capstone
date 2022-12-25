@@ -9,10 +9,7 @@
 
 }
 #currentTeam{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width:800px; 
+    width:1000px; 
     display: grid;
 }
 #header{
@@ -91,9 +88,7 @@ a{
     
 }
 #current-poke{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
+   
     /* align-items: center; */
     border: 5px, solid black;
     
