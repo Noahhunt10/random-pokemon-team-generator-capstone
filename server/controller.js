@@ -16,11 +16,13 @@ module.exports = {
          moves,
          id: newID
       }
-      
+      if(myTeam.length >= 6){
+         res.status(400).send('Team is full. Delete Pokemon to add more!')
+      }else{
          myTeam.push(newPokemon)
          res.status(200).send(myTeam)
          newID++
-     
+      }
    },
    deletePoke: (req,res) => {
       console.log(req.params)
