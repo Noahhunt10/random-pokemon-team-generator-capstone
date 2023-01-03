@@ -44,6 +44,7 @@ const randomPoke = async () => {
 const getItem = async () => {
     let index = Math.floor(Math.random() * 1329);
     const item = await axios.get(`https://pokeapi.co/api/v2/item/${index}`)
+    if(typeof item)
     currentItem.textContent = 'Item: ' + item.data.name.charAt(0).toUpperCase() + item.data.name.slice(1);
 
     

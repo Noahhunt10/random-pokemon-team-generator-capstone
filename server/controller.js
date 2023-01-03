@@ -26,7 +26,7 @@ module.exports = {
       }
    },
    deletePoke: (req,res) => {
-      console.log(req.params)
+      
       let { id } = req.params
       let index = myTeam.findIndex(pokemon => pokemon.id === +id)
         myTeam.splice(index,1)
