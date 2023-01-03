@@ -7,6 +7,7 @@ module.exports = {
    },
 
    addPoke: (req,res) => {
+      console.log(myTeam.length)
       let { name, img, item, ability, moves } = req.body
       let newPokemon = {
          name,
