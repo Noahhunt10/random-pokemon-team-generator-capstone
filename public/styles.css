@@ -72,9 +72,12 @@ a{
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
+    width:25%;
+    margin: 25px auto
 }
 #current-poke{
     border: 5px, solid black;
+    margin-top: 50px
     
 }
 #current-poke-name{
@@ -170,7 +173,7 @@ a{
 }
 .poke-card{
     text-align: center;
-    margin:1%;
+    margin: 0 3%;
 }
 .team-move{
     margin:5px;
