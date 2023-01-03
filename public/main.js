@@ -11,8 +11,8 @@ const currentAbility = document.getElementById('current-ability')
 const currentItem = document.getElementById('current-item')
 const myTeamDiv = document.getElementById('team-cards')
 const addBtn = document.getElementById('add-btn')
-// const baseURL = 'http://54.215.22.105/teambuild.html/api/team'
-const baseURL = 'http://localhost:4000/teambuild.html/api/team'
+const baseURL = 'http://54.215.22.105/teambuild.html/api/team'
+// const baseURL = 'http://localhost:4000/teambuild.html/api/team'
 
 
 
