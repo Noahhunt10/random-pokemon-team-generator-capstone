@@ -4,6 +4,11 @@
     flex-wrap: wrap;
     flex-direction: row;
     margin: 0 100px;
+    border-radius: 5px;
+    background-color: lightgray;
+    border: 5px solid black;
+    padding: 5px;
+
     
 }
 #currentTeam{
@@ -34,20 +39,18 @@
     margin-top: 100px;
 }
 .team-moves{
-    display:flex;
+    display: flex;
     flex-direction: column;
     background-color: red;
-    color:white;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     border: 3px solid black;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    border-radius: 5px;
+}
 }
 a{
     text-decoration: none;
@@ -81,23 +84,26 @@ a{
     
 }
 #current-poke-name{
-    display:flex;
+    display: flex;
     justify-content: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 #current-pokemon-moves{
-    display:flex;
+    display: flex;
     flex-direction: column;
     background-color: red;
-    color:white;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     border: 5px solid black;
     align-items: center;
+    border-radius: 5px;
 }
+
+
+
 #current-item-ability-container{
     display:flex;
     justify-content: center;
@@ -127,20 +133,17 @@ a{
 }
 .current-item-ability{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   width: 150px;
+    width: 150px;
     background-color: grey;
-    border : solid black;
+    border: 3px solid black;
     font-size: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     color: aliceblue;
-    margin:5px;
-    padding:5px;
-    display:flex;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    border-radius: 5px;
     justify-content: center;
 }
 .add-new-btns:hover{
@@ -151,9 +154,9 @@ a{
     height: 51px;
 }
 .moves{
-    display:flex;
+    display: flex;
     flex-direction: row;
-    justify-content:left;
+    justify-content: left;
 }
 .current-moves{
     width:190px;
@@ -163,7 +166,8 @@ a{
 #current-pokemon{
     border: 5px solid black;
     margin-bottom: 10px;
-    background-color: grey;
+    background-color: lightgrey;
+    border-radius: 5px;
 }
 #page{
     display: flex;
@@ -173,7 +177,8 @@ a{
 }
 .poke-card{
     text-align: center;
-    margin: 0 3%;
+    min-width: 28%;
+    padding: 0 2.6%;
 }
 .team-move{
     margin:5px;
@@ -190,26 +195,134 @@ a{
 #team-ability-item{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: grey;
-    border : 3px solid black;
+    border: 3px solid black;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: aliceblue;
+    margin: 5px;
+    font-size: small;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 5px;
+}
+#poke-img{
+    width: 150px;
+    height: 150px;
+    
+    
+}
+body{
+    background-color: rgb(184, 177, 177);
+}
+#current-types{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.type{
+    display: flex;
+    border: 3px solid black;
+    width: 45%;
+    justify-content: center;
+    border-radius: 100px;
+    margin-bottom: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
     color: aliceblue;
-    margin:5px;
-    font-size: small;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+
 }
-#poke-img{
-    width: 150px;
-    height: 150px;
+#team-poke-types{
+    display: flex;
+    justify-content: space-evenly;
+}
+.team-type{
+    display: flex;
     border: 3px solid black;
-    padding: 0px 50px;
-    background-color: grey;
+    width: 45%;
+    height: 25px;
+    justify-content: center;
+    border-radius: 100px;
+    margin-bottom: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: aliceblue;
+    align-items: center;
+
 }
-body{
-   background-color: cornflowerblue; 
+.Bug{
+    background: linear-gradient(#a8b820,#8d9a1b);
+    border-color: #616B13;
 }
+.Dark{
+    background: linear-gradient(#705848,#513f34);
+    border-color: #362A23;
+}
+.Dragon{
+    background: linear-gradient(#7038f8,#4c08ef);
+    border-color: #3D07C0;
+}
+.Electric{
+    background: linear-gradient(#f8d030,#f0c108);
+    border-color: #C19B07;
+}
+.Fairy{
+    background:  linear-gradient(#F98CFF,#F540FF);
+    border-color: #C1079B;
+}
+.Fighting{
+    background: linear-gradient(#c03028,#9d2721);
+    border-color: #82211B;
+}
+.Fire{
+    background: linear-gradient(#f08030,#dd6610);
+    border-color: #B4530D;
+}
+.Flying{
+    background: linear-gradient(#a890f0,#9180c4);
+    border-color: #7762B6;
+}
+.Ghost{
+    background: linear-gradient(#705898,#554374);
+    border-color: #413359;
+}
+.Grass{
+    background: linear-gradient(#78c850,#5ca935);
+    border-color: #4A892B;
+}
+.Ground{
+    background: linear-gradient(#e0c068,#d4a82f); 
+    border-color: #AA8623;
+}
+.Ice{
+    background: linear-gradient(#98d8d8,#69c6c6); 
+    border-color: #45B6B6;
+}
+.Normal{
+    background: linear-gradient(#a8a878,#8a8a59);
+    border-color: #79794E;
+}
+.Poison{
+    background: linear-gradient(#a040a0,#803380);
+    border-color: #662966;
+}
+.Psychic{
+    background: linear-gradient(#f85888,#f61c5d);
+    border-color: #D60945;
+}
+.Rock{
+    background: linear-gradient(#b8a038,#93802d);
+    border-color: #746523;
+}
+.Steel{
+    background: linear-gradient(#b8b8d0,#9797ba);
+    border-color: #7A7AA7;
+}
+.Water{
+    background: linear-gradient(#6890f0,#386ceb);
+    border-color: #1753E3;
+}
+

@@ -11,35 +11,44 @@ const currentAbility = document.getElementById('current-ability')
 const currentItem = document.getElementById('current-item')
 const myTeamDiv = document.getElementById('team-cards')
 const addBtn = document.getElementById('add-btn')
-const baseURL = 'http://54.215.22.105/teambuild.html/api'
-// const baseURL = 'http://localhost:4000/teambuild.html/api'
+const pokeType = document.getElementById('current-types')
+let currentTypesArr = []
+// const baseURL = 'http://54.215.22.105/teambuild.html/api'
+const baseURL = 'http://localhost:4000/teambuild.html/api'
 
 
 
 
 const randomPoke = async () => {
     let index = Math.floor(Math.random() * 905);
-    //Sets index to random number to access poki api with
+    
     const  { data: pokemonData } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
     currentPokeImg.src = pokemonData.sprites.other['official-artwork'].front_default
-    //Set image of random pokemon
-    let nameToUppercase = pokemonData.name.split('-')
-
+    
+     let nameToUppercase = pokemonData.name.split('-')
     nameToUppercase = upperCase(nameToUppercase)
     currentPokeName.textContent = nameToUppercase.join('-')
+   
+    let typesArr = pokemonData.types
     
+    pokeType.innerHTML = ''
+    currentTypesArr = []
+    for(i = 0; i < typesArr.length; i++) {
+        let type = typesArr[i].type.name.charAt(0).toUpperCase() + typesArr[i].type.name.slice(1)
+        let typeCard = document.createElement('div')
+        typeCard.classList.add(`type`, `${type}`)
+        typeCard.innerHTML = `<h2>${type}</h2>`
+        pokeType.appendChild(typeCard) 
+        currentTypesArr.push(type)
+    }
+   
     
-    
-    //Set name of random pokemon
     index = Math.floor(Math.random() * pokemonData.abilities.length);
-    //Sets index variable to random number based of amount of abilities pokemon can learn
     let abilityToUppercase = pokemonData.abilities[index].ability.name.split('-')
     abilityToUppercase = upperCase(abilityToUppercase)
-    
     abilityToUppercase = abilityToUppercase.join(' ')
-    
     currentAbility.textContent = 'Ability: ' + abilityToUppercase
-    //Sets currentAbility's text content to the ability name at the index of the number set in the index variable, makes the first letter uppercase.
+    
     let movesArr = []
     while(movesArr.length < 4){
         index = Math.floor(Math.random() * pokemonData.moves.length)
@@ -89,8 +98,17 @@ const createPokeCard = (poke) => {
     pokeCard.innerHTML =   `<button onclick="deletePoke(${poke.id})" id='delete'>X</button>
                             <h2 class="team-poke-name">${poke.name}</h2>
                             <img id="poke-img" src="${poke.img}"></img>
+                            <div id="team-poke-types">
+                            <div class="team-type ${poke.types[0]}">
+                            <p>${poke.types[0]}</p>
+                            </div>
+                            ${ poke.types[1] ?
+                            `<div class="team-type ${poke.types[1]}">
+                            <p>${poke.types[1]}</p>
+                            </div>` : ''}
+                            </div>
                             <div class="team-moves">
-                            <div id="team-moves-one">
+                            <div id="team-moves-one"> 
                             <p class="team-move">${poke.moves[0]}</p>
                             <p class="team-move">${poke.moves[1]}</p>                                      
                             
@@ -112,8 +130,10 @@ const addPoke = (evt) => {
     currentMoves.forEach(ele => {
         curMoves.push(ele.innerHTML)
     })
-    axios.post(`${baseURL}/team`, { name:currentPokeName.textContent, item: currentItem.textContent, ability: currentAbility.textContent, img: currentPokeImg.src, moves: curMoves })
+  
+    axios.post(`${baseURL}/team`, { name:currentPokeName.textContent, types: currentTypesArr, item: currentItem.textContent, ability: currentAbility.textContent, img: currentPokeImg.src, moves: curMoves })
     .then(async res => {
+        console.log(res.data)
         const data = res.data
         displayPoke(data)
        await randomPoke()

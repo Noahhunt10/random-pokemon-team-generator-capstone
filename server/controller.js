@@ -8,13 +8,14 @@ module.exports = {
    },
 
    addPoke: (req,res) => {
-      let { name, img, item, ability, moves } = req.body
+      let { name, img, item, ability, moves, types } = req.body
       let newPokemon = {
          name,
          img,
          ability,
          item,
          moves,
+         types,
          id: newID
       }
       if(myTeam.length >= 6){
