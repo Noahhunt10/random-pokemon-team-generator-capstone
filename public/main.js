@@ -11,8 +11,8 @@ const currentAbility = document.getElementById('current-ability')
 const currentItem = document.getElementById('current-item')
 const myTeamDiv = document.getElementById('team-cards')
 const addBtn = document.getElementById('add-btn')
-const baseURL = 'http://54.215.22.105/teambuild.html/api/team'
-// const baseURL = 'http://localhost:4000/teambuild.html/api/team'
+const baseURL = 'http://54.215.22.105/teambuild.html/api'
+// const baseURL = 'http://localhost:4000/teambuild.html/api'
 
 
 
@@ -23,35 +23,55 @@ const randomPoke = async () => {
     const  { data: pokemonData } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
     currentPokeImg.src = pokemonData.sprites.other['official-artwork'].front_default
     //Set image of random pokemon
-    currentPokeName.textContent = pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
+    let nameToUppercase = pokemonData.name.split('-')
+
+    nameToUppercase = upperCase(nameToUppercase)
+    currentPokeName.textContent = nameToUppercase.join('-')
+    
+    
+    
     //Set name of random pokemon
     index = Math.floor(Math.random() * pokemonData.abilities.length);
     //Sets index variable to random number based of amount of abilities pokemon can learn
-    currentAbility.textContent = 'Ability: ' + pokemonData.abilities[index].ability.name.charAt(0).toUpperCase() + pokemonData.abilities[index].ability.name.slice(1);
+    let abilityToUppercase = pokemonData.abilities[index].ability.name.split('-')
+    abilityToUppercase = upperCase(abilityToUppercase)
+    
+    abilityToUppercase = abilityToUppercase.join(' ')
+    
+    currentAbility.textContent = 'Ability: ' + abilityToUppercase
     //Sets currentAbility's text content to the ability name at the index of the number set in the index variable, makes the first letter uppercase.
     let movesArr = []
     while(movesArr.length < 4){
         index = Math.floor(Math.random() * pokemonData.moves.length)
-        if(!movesArr.includes(pokemonData.moves[index].move.name)){
-            movesArr.push(pokemonData.moves[index].move.name)
-            currentMoves[movesArr.length - 1].innerText = pokemonData.moves[index].move.name.charAt(0).toUpperCase() + pokemonData.moves[index].move.name.slice(1);
-        }
+            let currentMove = pokemonData.moves[index].move.name.split('-')
+            currentMove = upperCase(currentMove)
+            currentMove = currentMove.join(' ')
+            
+            if(!movesArr.includes(currentMove)){
+                movesArr.push(currentMove)
+                currentMoves[movesArr.length - 1].innerText = currentMove
+            }
     }
     //Loops to fill up movesArr array with 4 moves at a random number index of moves the pokemon can learn
-    
     await getItem()
 }
+
+const upperCase = (arr) => {
+    let upperCase = arr.map(ele =>{
+        return ele.charAt(0).toUpperCase() + ele.slice(1)
+    })
+    return upperCase
+}
 const getItem = async () => {
-    let index = Math.floor(Math.random() * 1329);
-    const item = await axios.get(`https://pokeapi.co/api/v2/item/${index}`)
-    if(typeof item)
-    currentItem.textContent = 'Item: ' + item.data.name.charAt(0).toUpperCase() + item.data.name.slice(1);
+    const item = await axios.get(`${baseURL}/item`)
+        currentItem.textContent = 'Item: '+ item.data
+ 
 
     
 }
 
 const getTeam = () => {
-    axios.get(baseURL)
+    axios.get(`${baseURL}/team`)
     .then(res => {
         const data = res.data
         displayPoke(data)
@@ -92,7 +112,7 @@ const addPoke = (evt) => {
     currentMoves.forEach(ele => {
         curMoves.push(ele.innerHTML)
     })
-    axios.post(baseURL, { name:currentPokeName.textContent, item: currentItem.textContent, ability: currentAbility.textContent, img: currentPokeImg.src, moves: curMoves })
+    axios.post(`${baseURL}/team`, { name:currentPokeName.textContent, item: currentItem.textContent, ability: currentAbility.textContent, img: currentPokeImg.src, moves: curMoves })
     .then(async res => {
         const data = res.data
         displayPoke(data)
@@ -102,7 +122,7 @@ const addPoke = (evt) => {
     
 }
 const deletePoke = (id) => {
-    axios.delete(`${baseURL}/${id}`)
+    axios.delete(`${baseURL}/team/${id}`)
     .then(res => {
         displayPoke(res.data)
     })

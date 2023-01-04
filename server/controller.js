@@ -1,3 +1,4 @@
+const itemDB = require('./itemDB.json')
 let myTeam = []
 let newID = 1
 module.exports = {
@@ -7,7 +8,6 @@ module.exports = {
    },
 
    addPoke: (req,res) => {
-      console.log(myTeam.length)
       let { name, img, item, ability, moves } = req.body
       let newPokemon = {
          name,
@@ -31,6 +31,11 @@ module.exports = {
       let index = myTeam.findIndex(pokemon => pokemon.id === +id)
         myTeam.splice(index,1)
         res.status(200).send(myTeam)
+   },
+   getItem: (req,res) => {
+      let index = Math.floor(Math.random() * itemDB.items.length)
+      let item = itemDB.items[index]
+      res.status(200).send(item)
    }
 
 

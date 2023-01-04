@@ -15,9 +15,11 @@ app.get('/', (req, res) => {
 const { getTeam } = require('./controller')
 const { addPoke } = require('./controller')
 const { deletePoke } = require('./controller')
+const { getItem } = require('./controller')
 app.get('/teambuild.html/api/team', getTeam)
 app.post('/teambuild.html/api/team', addPoke)
 app.delete('/teambuild.html/api/team/:id', deletePoke)
+app.get('/teambuild.html/api/item', getItem)
 
 
 

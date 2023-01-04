@@ -168,7 +168,7 @@ a{
 #page{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 0 auto;
 }
 .poke-card{
