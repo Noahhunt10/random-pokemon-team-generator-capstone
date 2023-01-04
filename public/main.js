@@ -13,6 +13,10 @@ const myTeamDiv = document.getElementById('team-cards')
 const addBtn = document.getElementById('add-btn')
 const pokeType = document.getElementById('current-types')
 let currentTypesArr = []
+let shinyNumber = 0
+let rolls = 0
+
+
 const baseURL = 'http://54.215.22.105/teambuild.html/api'
 // const baseURL = 'http://localhost:4000/teambuild.html/api'
 
@@ -20,10 +24,19 @@ const baseURL = 'http://54.215.22.105/teambuild.html/api'
 
 
 const randomPoke = async () => {
-    let index = Math.floor(Math.random() * 905);
+    let index = Math.floor(Math.random() * 905)
     
     const  { data: pokemonData } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
-    currentPokeImg.src = pokemonData.sprites.other['official-artwork'].front_default
+    await shiny()
+    if(shinyNumber === 1) {
+        currentPokeImg.src = pokemonData.sprites.front_shiny
+        alert(`You Found a Shiny in ${rolls} rolls!`)
+        
+       
+    }else{
+         currentPokeImg.src = pokemonData.sprites.other['official-artwork'].front_default
+        
+    }
     
      let nameToUppercase = pokemonData.name.split('-')
     nameToUppercase = upperCase(nameToUppercase)
@@ -63,8 +76,19 @@ const randomPoke = async () => {
     }
     //Loops to fill up movesArr array with 4 moves at a random number index of moves the pokemon can learn
     await getItem()
+    
 }
 
+const shiny = async  () => {
+    const shinyNum = await axios.get(`${baseURL}/shiny`)
+    number = shinyNum.data
+    rolls = number.rolls
+    shinyNumber = number.shinyNum
+    console.log(shinyNumber)
+    console.log(number.odds)
+    
+
+}
 const upperCase = (arr) => {
     let upperCase = arr.map(ele =>{
         return ele.charAt(0).toUpperCase() + ele.slice(1)

@@ -168,6 +168,8 @@ a{
     margin-bottom: 10px;
     background-color: lightgrey;
     border-radius: 5px;
+    height: 475px;
+    width: 475px;
 }
 #page{
     display: flex;
