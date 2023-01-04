@@ -13,8 +13,8 @@ const myTeamDiv = document.getElementById('team-cards')
 const addBtn = document.getElementById('add-btn')
 const pokeType = document.getElementById('current-types')
 let currentTypesArr = []
-// const baseURL = 'http://54.215.22.105/teambuild.html/api'
-const baseURL = 'http://localhost:4000/teambuild.html/api'
+const baseURL = 'http://54.215.22.105/teambuild.html/api'
+// const baseURL = 'http://localhost:4000/teambuild.html/api'
 
 
 
