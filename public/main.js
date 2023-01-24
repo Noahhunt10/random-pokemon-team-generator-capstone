@@ -24,7 +24,7 @@ const baseURL = 'http://54.215.22.105/teambuild.html/api'
 
 
 const randomPoke = async () => {
-    let index = Math.floor(Math.random() * 905)
+    let index = Math.floor(Math.random() * 1008)
     
     const  { data: pokemonData } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
     await shiny()
